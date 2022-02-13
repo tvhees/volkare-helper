@@ -1,0 +1,12 @@
+{
+    "vReturn": {
+        "fair": 18,
+        "tight": 15,
+        "thrilling": 12
+    },
+    "vQuest": {
+        "fair": 20,
+        "tight": 16,
+        "thrilling": 12
+    }
+}

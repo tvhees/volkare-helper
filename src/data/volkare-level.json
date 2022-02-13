@@ -1,0 +1,46 @@
+{
+    "vReturn": {
+        "1": {
+            "daring": 5,
+            "heroic": 8,
+            "legendary": 12
+        },
+        "2": {
+            "daring": 10,
+            "heroic": 16,
+            "legendary": 24
+        },
+        "3": {
+            "daring": 15,
+            "heroic": 24,
+            "legendary": 36
+        },
+        "4": {
+            "daring": 20,
+            "heroic": 32,
+            "legendary": 48
+        }
+    },
+    "vQuest": {
+        "1": {
+            "daring": 8,
+            "heroic": 10,
+            "legendary": 14
+        },
+        "2": {
+            "daring": 14,
+            "heroic": 18,
+            "legendary": 26
+        },
+        "3": {
+            "daring": 20,
+            "heroic": 26,
+            "legendary": 38
+        },
+        "4": {
+            "daring": 26,
+            "heroic": 34,
+            "legendary": 50
+        }
+    }
+}
