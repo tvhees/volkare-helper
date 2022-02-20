@@ -1,4 +1,8 @@
-import { ScenarioData } from "./mage-knight";
+import { Card } from "./deck";
+import { CardColour, CardType, ScenarioData } from "./mage-knight";
+import { VolkareScenario } from "./scenario";
+import { HexUtils } from "react-hexgrid";
+import volkarePathData from "../data/volkare-path.json";
 
 const scenarios = ['vReturn', 'vQuest'] as const;
 const difficulties = ['daring', 'heroic', 'legendary'] as const;
@@ -11,4 +15,22 @@ export interface VolkareScenarioData extends ScenarioData {
     scenario: Scenario
     difficulty: Difficulty
     speed: Speed
+}
+
+const PATHCOLOURS = [CardColour.BLUE, CardColour.WHITE, CardColour.GREEN] as const;
+type PathColourKey = typeof PATHCOLOURS[number];
+
+export const createPathEnd = (scenario: VolkareScenario, card?: Card) => {
+    console.log(scenario.name, card?.colour);
+    if (!card || !isPathColour(card.colour)) {
+        return undefined;
+    }
+
+    const direction = volkarePathData[scenario.name][card.colour];
+    const magnitude = card.type === CardType.SPELL ? 2 : 1;
+    return HexUtils.multiply(HexUtils.direction(direction), magnitude);
+}
+
+const isPathColour = (colour: CardColour): colour is PathColourKey => {
+    return PATHCOLOURS.includes(colour as PathColourKey)
 }

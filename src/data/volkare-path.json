@@ -1,0 +1,12 @@
+{
+    "vReturn": {
+        "white": 2,
+        "blue": 1,
+        "green": 6
+    },
+    "vQuest": {
+        "white": 5,
+        "blue": 5,
+        "green": 4
+    }
+}

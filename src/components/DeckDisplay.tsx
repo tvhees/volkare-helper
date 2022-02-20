@@ -3,9 +3,10 @@ import { Card, Deck } from "../lib/deck";
 
 interface Props {
     initialDeck: Deck;
+    onCardDraw: (card: Card) => unknown;
 }
 
-const DeckDisplay = ({ initialDeck }: Props) => {
+const DeckDisplay = ({ initialDeck, onCardDraw }: Props) => {
     const [currentCard, setCurrentCard] = useState<Card>();
     const [deck, setDeck] = useState<Deck>([]);
 
@@ -20,6 +21,7 @@ const DeckDisplay = ({ initialDeck }: Props) => {
         const card = deck?.[0];
         setCurrentCard(card);
         setDeck(deck?.slice(1));
+        onCardDraw(card);
     };
 
     return (

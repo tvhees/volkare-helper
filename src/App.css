@@ -36,3 +36,46 @@ label > select {
     width: 20vh;
     aspect-ratio: 0.75;
 }
+
+svg g {
+    fill: #3f51b5;
+    fill-opacity: 0.6;
+}
+svg g:hover {
+    fill-opacity: 1;
+}
+svg g:hover text {
+    fill-opacity: 1;
+}
+
+svg g polygon {
+    stroke: #3f51b5;
+    stroke-width: 0.2;
+    transition: fill-opacity 0.2s;
+}
+svg g text {
+    font-size: 0.3em;
+    fill: #ffffff;
+    fill-opacity: 0.4;
+    transition: fill-opacity 0.2s;
+}
+svg path {
+    fill: none;
+    stroke: none;
+    stroke-width: 0.4em;
+    stroke-opacity: 0.3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.white svg path {
+    stroke: white;
+}
+
+.blue svg path {
+    stroke: blue;
+}
+
+.green svg path {
+    stroke: green;
+}

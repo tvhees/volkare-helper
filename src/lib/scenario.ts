@@ -1,4 +1,4 @@
-import { VolkareScenarioData } from "./mk-volkare";
+import { Scenario, VolkareScenarioData } from "./mk-volkare";
 import volkareLevelData from "../data/volkare-level.json";
 import indecisiveUnitsData from "../data/indecisive-units.json";
 import cityLevelsData from "../data/city-levels.json";
@@ -27,6 +27,7 @@ function mapTiles({ scenario, players }: VolkareScenarioData) {
 }
 
 export type VolkareScenario = {
+    name: Scenario
     volkareLevel: number
     indecisiveUnits: number
     cityLevels: number
@@ -39,6 +40,7 @@ export type VolkareScenario = {
 
 export function createScenario(data: VolkareScenarioData) {
     return {
+        name: data.scenario,
         volkareLevel: volkareLevel(data),
         indecisiveUnits: indecisiveUnits(data),
         cityLevels: cityLevels(data),
