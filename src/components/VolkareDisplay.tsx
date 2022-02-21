@@ -6,9 +6,10 @@ import {
     HexGrid,
     Layout,
     Path,
+    HexUtils,
 } from "react-hexgrid";
 import { VolkareScenario } from "../lib/scenario";
-import { createPathEnd } from "../lib/mk-volkare";
+import { createPathEnd, getFightRadius } from "../lib/mk-volkare";
 import { useEffect, useState } from "react";
 
 interface Props {
@@ -22,15 +23,25 @@ interface Hex {
     p: number;
 }
 
+const origin = new Hex(0, 0, 0);
+
+// We want to display fight radius but omit the central hex (that's where Volkare is)
+const isInFightRadius = (hex: Hex, radius: number) => {
+    const distance = HexUtils.distance(hex, origin);
+    return distance && distance <= radius;
+};
+
 const VolkareDisplay = ({ scenario, card }: Props) => {
     const hexagons = GridGenerator.hexagon(2) as Hex[];
     const [pathEnd, setPathEnd] = useState<Hex>();
+    const [fightRadius, setFightRadius] = useState(0);
     useEffect(() => {
         setPathEnd(createPathEnd(scenario, card));
+        setFightRadius(getFightRadius(card));
     }, [scenario, card]);
     return (
         <div className={`${card?.colour}`}>
-            <HexGrid width={200} height={200} viewBox="-30 -30 60 60">
+            <HexGrid viewBox="-30 -30 60 60">
                 <Layout
                     size={{ x: 6, y: 6 }}
                     flat={false}
@@ -38,9 +49,15 @@ const VolkareDisplay = ({ scenario, card }: Props) => {
                     origin={{ x: 0, y: 0 }}
                 >
                     {hexagons.map((hex, i) => (
-                        <Hexagon key={i} {...hex} />
+                        <Hexagon
+                            className={
+                                isInFightRadius(hex, fightRadius) ? "fight" : ""
+                            }
+                            key={i}
+                            {...hex}
+                        />
                     ))}
-                    {pathEnd && <Path start={new Hex(0, 0, 0)} end={pathEnd} />}
+                    {pathEnd && <Path start={origin} end={pathEnd} />}
                 </Layout>
             </HexGrid>
         </div>

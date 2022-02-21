@@ -28,19 +28,34 @@ label > select {
     border: 1px solid grey;
 }
 
+.deck-container button {
+    width: 60%;
+    aspect-ratio: 1;
+}
+
 .current-card-container .card {
     border: 1px solid black;
 }
 
 .card {
-    width: 20vh;
+    width: 20vw;
     aspect-ratio: 0.75;
 }
 
-svg g {
-    fill: #3f51b5;
+svg {
+    width: 40vw;
+    height: 40vw;
+}
+
+svg g g {
+    fill: lightgreen;
     fill-opacity: 0.6;
 }
+
+svg g.fight .hexagon {
+    fill: red;
+}
+
 svg g:hover {
     fill-opacity: 1;
 }
@@ -49,21 +64,16 @@ svg g:hover text {
 }
 
 svg g polygon {
-    stroke: #3f51b5;
+    stroke: darkgreen;
     stroke-width: 0.2;
     transition: fill-opacity 0.2s;
 }
-svg g text {
-    font-size: 0.3em;
-    fill: #ffffff;
-    fill-opacity: 0.4;
-    transition: fill-opacity 0.2s;
-}
+
 svg path {
     fill: none;
     stroke: none;
-    stroke-width: 0.4em;
-    stroke-opacity: 0.3;
+    stroke-width: 0.2em;
+    stroke-opacity: 0.8;
     stroke-linecap: round;
     stroke-linejoin: round;
 }

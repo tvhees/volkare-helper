@@ -8,7 +8,7 @@ interface Props {
 const ScenarioParameters = ({ onCreate }: Props) => {
     const [params, setParams] = useState({
         scenario: "vReturn",
-        players: 1,
+        players: "1",
         difficulty: "daring",
         speed: "fair",
     } as VolkareScenarioData);
@@ -35,10 +35,10 @@ const ScenarioParameters = ({ onCreate }: Props) => {
                 <label>
                     Players:
                     <select name="players" onChange={handleChange}>
-                        <option value={1}>Solo</option>
-                        <option value={2}>Two</option>
-                        <option value={3}>Three</option>
-                        <option value={4}>Four</option>
+                        <option value="1">Solo</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                        <option value="4">Four</option>
                     </select>
                 </label>
                 <label>

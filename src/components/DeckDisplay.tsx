@@ -30,20 +30,16 @@ const DeckDisplay = ({ initialDeck, onCardDraw }: Props) => {
             <div className="deck-container flex-container">
                 <div className="card">
                     <p>{deck.length} cards remaining</p>
-                </div>
-                <div>
                     <button disabled={!deck.length} onClick={onDrawCardHandler}>
                         Draw Card
                     </button>
                 </div>
-                {currentCard && (
-                    <div className="current-card-container">
-                        <div className="card">
-                            <p>{currentCard.type}</p>
-                            {currentCard.colour && <p>{currentCard.colour}</p>}
-                        </div>
+                <div className="current-card-container">
+                    <div className="card">
+                        <p>{currentCard?.type || "Empty"}</p>
+                        {currentCard?.colour && <p>{currentCard.colour}</p>}
                     </div>
-                )}
+                </div>
             </div>
         </>
     );

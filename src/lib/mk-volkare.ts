@@ -20,8 +20,11 @@ export interface VolkareScenarioData extends ScenarioData {
 const PATHCOLOURS = [CardColour.BLUE, CardColour.WHITE, CardColour.GREEN] as const;
 type PathColourKey = typeof PATHCOLOURS[number];
 
+const isPathColour = (colour: CardColour): colour is PathColourKey => {
+    return PATHCOLOURS.includes(colour as PathColourKey)
+}
+
 export const createPathEnd = (scenario: VolkareScenario, card?: Card) => {
-    console.log(scenario.name, card?.colour);
     if (!card || !isPathColour(card.colour)) {
         return undefined;
     }
@@ -31,6 +34,10 @@ export const createPathEnd = (scenario: VolkareScenario, card?: Card) => {
     return HexUtils.multiply(HexUtils.direction(direction), magnitude);
 }
 
-const isPathColour = (colour: CardColour): colour is PathColourKey => {
-    return PATHCOLOURS.includes(colour as PathColourKey)
+export const getFightRadius = (card?: Card) => {
+    if (card?.colour !== CardColour.RED) {
+        return 0;
+    }
+
+    return card?.type === CardType.SPELL ? 2 : 1;
 }

@@ -1,4 +1,4 @@
-const players = [1, 2, 3, 4] as const;
+const players = ['1', '2', '3', '4'] as const;
 
 export type PlayerCount = typeof players[number];
 export interface ScenarioData {

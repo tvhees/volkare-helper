@@ -11,7 +11,7 @@ function volkareLevel({ scenario, players, difficulty }: VolkareScenarioData) {
 }
 
 function indecisiveUnits({ speed, players }: VolkareScenarioData) {
-    return indecisiveUnitsData[speed] + players;
+    return indecisiveUnitsData[speed] + parseInt(players);
 }
 
 function cityLevels({ scenario, players, difficulty }: VolkareScenarioData) {
