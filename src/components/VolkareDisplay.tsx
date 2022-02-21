@@ -17,7 +17,7 @@ interface Props {
     card?: Card;
 }
 
-interface Hex {
+interface HexModel {
     q: number;
     r: number;
     p: number;
@@ -26,14 +26,14 @@ interface Hex {
 const origin = new Hex(0, 0, 0);
 
 // We want to display fight radius but omit the central hex (that's where Volkare is)
-const isInFightRadius = (hex: Hex, radius: number) => {
+const isInFightRadius = (hex: HexModel, radius: number) => {
     const distance = HexUtils.distance(hex, origin);
     return distance && distance <= radius;
 };
 
 const VolkareDisplay = ({ scenario, card }: Props) => {
-    const hexagons = GridGenerator.hexagon(2) as Hex[];
-    const [pathEnd, setPathEnd] = useState<Hex>();
+    const hexagons = GridGenerator.hexagon(2) as HexModel[];
+    const [pathEnd, setPathEnd] = useState<HexModel>();
     const [fightRadius, setFightRadius] = useState(0);
     useEffect(() => {
         setPathEnd(createPathEnd(scenario, card));
