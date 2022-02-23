@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import { VolkareScenario, createScenario } from "./lib/scenario";
-import { Deck, createDeck, Card } from "./lib/deck";
+import { Deck, createShuffledDeck, Card } from "./lib/deck";
 import { VolkareScenarioData } from "./lib/mk-volkare";
 import ScenarioParameters from "./components/ScenarioParameters";
 import AppHeader from "./components/AppHeader";
@@ -16,7 +16,7 @@ function App() {
 
     const onCreateHandler = (params: VolkareScenarioData) => {
         setScenario(createScenario(params));
-        setDeck(createDeck(params));
+        setDeck(createShuffledDeck(params));
         setCard(undefined);
     };
 

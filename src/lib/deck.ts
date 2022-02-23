@@ -26,12 +26,20 @@ function createSpells() {
     );
 }
 
-export function createDeck(scenarioData: VolkareScenarioData) {
+export function createShuffledDeck(scenarioData: VolkareScenarioData) {
     return shuffle(
         [
             ...createActions(),
             ...createSpells(),
             ...createWounds(scenarioData)
         ]
+    );
+}
+
+export function createSortedDeck(deck: Deck) {
+    return [...deck].sort(
+        (a, b) =>
+            2 * b.colour.localeCompare(a.colour) +
+            b.type.localeCompare(a.type)
     );
 }

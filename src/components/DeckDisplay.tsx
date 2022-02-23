@@ -1,5 +1,6 @@
+import { stringify } from "querystring";
 import { MouseEventHandler, useEffect, useState } from "react";
-import { Card, Deck } from "../lib/deck";
+import { Card, createSortedDeck, Deck } from "../lib/deck";
 
 interface Props {
     initialDeck: Deck;
@@ -28,6 +29,13 @@ const DeckDisplay = ({ initialDeck, onCardDraw }: Props) => {
         <>
             <h2>Volkare Deck</h2>
             <div className="deck-container flex-container">
+                <div className="mini-card-container">
+                    {createSortedDeck(deck).map(({ type, colour }) => (
+                        <div className={`card mini-card ${colour}`}>
+                            <p>{type[0]}</p>
+                        </div>
+                    ))}
+                </div>
                 <div className="card">
                     <p>{deck.length} cards remaining</p>
                     <button disabled={!deck.length} onClick={onDrawCardHandler}>

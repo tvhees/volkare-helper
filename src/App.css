@@ -25,7 +25,8 @@ label > select {
 }
 
 .deck-container .card,
-.current-card-container {
+.current-card-container,
+.mini-card-container {
     width: 20vw;
     aspect-ratio: 0.75;
 }
@@ -56,9 +57,42 @@ label > select {
     backface-visibility: hidden;
 }
 
+.mini-card-container {
+    display: flex;
+    flex-flow: row wrap;
+    align-content: flex-start;
+}
+
 .card {
     width: 20vw;
     aspect-ratio: 0.75;
+}
+
+.card.mini-card {
+    background-color: lightgray;
+}
+
+.card.mini-card {
+    width: 2vw;
+}
+
+.card.white {
+    background-color: white;
+}
+
+.card.red {
+    background-color: red;
+    color: white;
+}
+
+.card.blue {
+    background-color: blue;
+    color: white;
+}
+
+.card.green {
+    background-color: green;
+    color: white;
 }
 
 svg {
