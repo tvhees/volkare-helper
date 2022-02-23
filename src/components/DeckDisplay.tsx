@@ -1,4 +1,3 @@
-import { stringify } from "querystring";
 import { MouseEventHandler, useEffect, useState } from "react";
 import { Card, createSortedDeck, Deck } from "../lib/deck";
 
