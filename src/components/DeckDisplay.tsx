@@ -35,10 +35,14 @@ const DeckDisplay = ({ initialDeck, onCardDraw }: Props) => {
                     </button>
                 </div>
                 <div className="current-card-container">
-                    <div className="card">
-                        <p>{currentCard?.type || "Empty"}</p>
-                        {currentCard?.colour && <p>{currentCard.colour}</p>}
-                    </div>
+                    {currentCard ? (
+                        <div className="card" key={deck.length}>
+                            <p>{currentCard.type}</p>
+                            {currentCard.colour && <p>{currentCard.colour}</p>}
+                        </div>
+                    ) : (
+                        <p>Empty</p>
+                    )}
                 </div>
             </div>
         </>

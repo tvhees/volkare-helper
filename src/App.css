@@ -24,6 +24,12 @@ label > select {
     margin-left: 1rem;
 }
 
+.deck-container .card,
+.current-card-container {
+    width: 20vw;
+    aspect-ratio: 0.75;
+}
+
 .deck-container .card {
     border: 1px solid grey;
 }
@@ -33,8 +39,21 @@ label > select {
     aspect-ratio: 1;
 }
 
+@keyframes enter {
+    from {
+        transform: rotateY(180deg) scale(1.2);
+    }
+}
+
+.current-card-container {
+    border: 1px solid grey;
+}
+
 .current-card-container .card {
-    border: 1px solid black;
+    outline: 1px solid grey;
+    background: white;
+    animation: enter 0.2s ease-out;
+    backface-visibility: hidden;
 }
 
 .card {
